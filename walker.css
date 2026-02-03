@@ -1,0 +1,62 @@
+/* --- OBSIDIAN LIQUID GLASS WALKER --- */
+
+/* deep charcoal with transparency for blur to shine through */
+@define-color base rgba(0, 0, 0, 0.1);    
+/* slightly lighter black for the input field */
+@define-color search-bg rgba(0, 0, 0, 0.3); 
+/* crisp white text for readability against dark glass */
+@define-color text #ffffff;                      
+@define-color accent #bbbbbb;
+
+/* Outer wrapper - The Main "Floating" Box */
+.box-wrapper {
+  background: @base;
+  border-radius: 15px; /* slightly rounder for that "liquid" feel */
+  /* This light border is what creates the "Glass" effect against dark backgrounds */
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  
+  /* Dark shadow to ground it, subtle light rim to lift it */
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  margin: 10px;
+}
+
+/* The Search Input Area */
+window .search {
+  background: @search-bg;
+  border-radius: 10px; 
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: @text;
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+  font-weight: bold;
+  padding: 10px 18px;
+  margin-bottom: 12px;
+}
+
+/* Individual Result Items */
+#item {
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: @text;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover/Active State: Becomes a "Glow" */
+child:selected {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  /* Inner glow to make the selection look illuminated from within */
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Text Colors */
+.item-text-main {
+  color: @text;
+  font-weight: bold;
+  /* Darker text doesn't need glow, but white text benefits from a tiny dark shadow for pop */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.item-text-description {
+  color: rgba(255, 255, 255, 0.5); /* Dimmed white for secondary info */
+  font-size: 12px;
+}

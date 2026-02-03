@@ -1,0 +1,160 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+  "margin-top": 5,
+  "margin-left": 10,
+  "margin-right": 10,
+  "spacing": 4,
+
+  "modules-left": ["hyprland/workspaces", "cpu", "memory", "mpris", "pulseaudio"],
+
+  "modules-center": ["clock"],
+
+  "modules-right": ["network", "power-profiles-daemon", "battery"],
+  
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon}  {volume}%",
+    "format-muted": "  Muted",
+    // This is the magic part: it looks for specific port names
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "󰋎",
+        "headset": "󰋎",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": [" ", " ", " "]
+    },
+    "on-click": "omarchy-launch-audio",
+    "scroll-step": 5
+  },
+  
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "format-icons": {
+        "performance": " 󱐋 ",
+        "balanced": " 󰎎 ",
+        "power-saver": " 󰌪 "
+    },
+    "tooltip-format": "Power profile: {profile}"
+  },
+
+  "mpris": {
+    "player": "spotify",                    // locks to Spotify only (case-sensitive; check with playerctl --list-all)
+    "format": "{status_icon} {title}",
+    "format-paused": "{status_icon} {title}",
+    "format-stopped": "",                   // hide when Spotify not playing
+    "max-length": 50,
+    "interval": 1,
+    "on-click": "playerctl --player=spotify play-pause",
+    // "on-click-right": "playerctl --player=spotify next",
+    // "on-click-middle": "playerctl --player=spotify previous",
+    "player-icons": {
+        "spotify": ""
+    },
+    "status-icons": {
+        "playing": "",
+        "paused": "",
+        "stopped": ""
+    }
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "states": {
+      "good": 0,
+      "warning": 60,
+      "critical": 80,
+    },
+    "on-click": "omarchy-launch-tui btop"
+  },
+
+  "memory": {
+    "format": " {used}G",
+    "states": {
+      "good": 0,
+      "warning": 65,
+      "critical": 80,
+    },
+    "on-click": "omarchy-launch-tui btop"
+  },
+
+  "disk": {
+    "format": "󰋊 {free}",
+    "states": {
+      "good": 0,
+      "warning": 80,
+      "critical": 90,
+    },
+    "on-click": "omarchy-launch-tui btop"
+  },
+
+  "battery": {
+    "interval": "5",
+    "format": "{icon} {capacity}% 󰥔 {time}",
+    "format-time": "{H}:{m}",
+    "format-charging": "{icon} {capacity}% 󰥔 {time}",
+    "format-full": "{icon} {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰂄"],
+    "states": {
+      "good": 100,
+      "normal": 90,
+      "warning": 30,
+      "critical": 15,
+    },
+    "on-click": ""
+  },
+
+  "custom/omarchy": {
+    "format": " <span color='#7aa2f7'>󰣇</span> ",
+    "on-click": "omarchy-menu",
+    "tooltip": false,
+  },
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "persistent-workspaces": { "1": [], "2": [], "3": [], "4": [] },
+  },
+
+  "clock": {
+    "interval": 60,
+    "format": "{:%H:%M}",
+    "format-alt": "<span color='#e0af68'></span>{:%d %b, %Y}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+  },
+
+  "network": {
+    // "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": " 󰈀 ",
+    "format-disconnected": " No network",
+    "on-click": "omarchy-launch-wifi",
+  },
+
+  // "custom/weather": {
+  //   "exec": "python ~/.config/waybar/scripts/weather.py",
+  //   "return-type": "json",
+  //   "interval": 1800,
+  //   "tooltip": true,
+  // },
+
+  // "pulseaudio": {
+  //   "format": "<span color='#9ece6a'>{icon}</span> {volume}%",
+  //   "format-icons": { "default": ["", "", ""] },
+  // },
+
+  // "battery": {
+  //     "format": "<span color='#e0af68'>{icon}</span> {capacity}%",
+  //     "format-charging": "<span color='#9ece6a'>󱐋</span> {capacity}%",
+  //     "format-icons": ["", "", "", "", ""]
+  // },
+
+  // "custom/power": {
+  //   "format": " <span color='#f7768e'>⏻ </span>",
+  //   "on-click": "omarchy-menu system",
+  // },
+}
+
+

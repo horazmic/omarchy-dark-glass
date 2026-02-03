@@ -1,0 +1,191 @@
+/* Global Reset */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    font-weight: 800;
+    /* color:rgb(255, 255, 255); */
+    /* color: rgb(30, 30, 30); */
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* The Main Bar Container */
+window#waybar {
+    background: transparent;
+    /* border-radius: 8px;
+    margin: 10px 10px 0 10px; */
+}
+
+/* Individual Module Containers */
+#cpu,
+#memory,
+#disk,
+#custom-omarchy,
+#workspaces,
+#custom-weather,
+#network,
+#battery,
+#mpris,
+#power-profiles-daemon,
+#pulseaudio,
+#clock,
+#custom-power {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding: 0 10px;
+    margin: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* The "Liquid" transition: snappy start, smooth finish */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Frosty text/icon glow instead of a dark shadow */
+    /* text-shadow: 0 0 8px rgba(255, 255, 255, 0.3); */
+    
+    /* Subtle internal depth */
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+#network.disconnected,
+#network.disabled {
+    background: rgba(255, 50, 50, 0.2);
+    color: #ff5555;
+    border: 1px solid rgba(255, 50, 50, 0.5);
+    box-shadow: inset 0 0 15px rgba(255, 50, 50, 0.3);
+    animation: smooth-liquid-glow 4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+#waybar .warning, 
+#battery.warning {
+    background: rgba(230, 180, 0, 0.15); /* Tinted frost */
+    /* color: #ffd700; */
+    color: #ffffff;
+    border: 1px solid rgba(230, 180, 0, 0.4);
+}
+
+/* Critical State (Red/Emergency) */
+#waybar .critical, 
+#battery.critical:not(.charging) {
+    background: rgba(255, 50, 50, 0.2);
+    /* color: #ff5555; */
+    color: #ffffff;
+    border: 1px solid rgba(255, 50, 50, 0.5);
+    box-shadow: inset 0 0 15px rgba(255, 50, 50, 0.3);
+    animation: smooth-liquid-glow 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+/* Good/Healthy State (Green/Emerald) */
+#battery.good {
+    background: rgba(40, 200, 100, 0.15);
+    /* color: #50fa7b; */
+    color: #ffffff;
+    border: 1px solid rgba(40, 200, 100, 0.3);
+}
+
+/* Hover Effects for Interactivity */
+#custom-omarchy:hover,
+#network:hover,
+#mpris:hover,
+#power-profiles-daemon:hover,
+#cpu:hover,
+#memory:hover,
+#pulseaudio:hover,
+#clock:hover,
+#custom-power:hover {
+    background: rgba(255, 255, 255, 0.1);
+    /* border: 1px solid rgba(255, 255, 255, 0.1); */
+    /* border-radius: 10px; */
+    
+    /* Bloom effect on hover */
+    /* box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.1) */
+}
+
+#workspaces button:not(.active):hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+}
+
+/* Colorful Workspace Numbers */
+#workspaces button:nth-child(1) {
+    color: #f7768e;
+}
+#workspaces button:nth-child(2) {
+    color: #9ece6a;
+}
+#workspaces button:nth-child(3) {
+    color: #e0af68;
+}
+#workspaces button:nth-child(4) {
+    color: #f7768e;
+}
+#workspaces button:nth-child(5) {
+    color: #9ece6a;
+}
+#workspaces button:nth-child(6) {
+    color: #e0af68;
+}
+#workspaces button:nth-child(7) {
+    color: #f7768e;
+}
+#workspaces button:nth-child(8) {
+    color: #9ece6a;
+}
+#workspaces button:nth-child(9) {
+    color: #e0af68;
+}
+#workspaces button:nth-child(10) {
+    color: #f7768e;
+}
+#workspaces button:nth-child(11) {
+    color: #9ece6a;
+}
+#workspaces button:nth-child(12) {
+    color: #e0af68;
+}
+
+#workspaces button.active {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+}
+
+/* --- TOOLTIP STYLING --- */
+tooltip {
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.7), 
+        rgba(235, 235, 235, 0.5)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.8); /* "Shine" on the edge */
+}
+
+tooltip label {
+    padding: 8px 12px;
+    color: #000000;
+    text-shadow: none; 
+    font-weight: 600; /* Makes it very readable */
+}
+
+#calendar {
+    padding: 5px;
+}
+
+@keyframes smooth-liquid-glow {
+    0% {
+        background: rgba(255, 50, 50, 0.1);
+        box-shadow: inset 0 0 1px rgba(255, 50, 50, 0.3),
+                    0 0 0px rgba(255, 50, 50, 0);
+    }
+    50% {
+        /* Peak brightness - slightly more opaque and a soft outer glow */
+        background: rgba(255, 50, 50, 0.1);
+        box-shadow: inset 0 0 25px rgba(255, 50, 50, 0.3),
+                    0 0 15px rgba(255, 50, 50, 0.1);
+    }
+    100% {
+        background: rgba(255, 50, 50, 0.1);
+        box-shadow: inset 0 0 1px rgba(255, 50, 50, 0.3),
+                    0 0 0px rgba(255, 50, 50, 0);
+    }
+}

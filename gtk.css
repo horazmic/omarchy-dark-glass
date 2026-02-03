@@ -1,0 +1,80 @@
+/**
+ * Obsidian Mono Liquid
+ * Pure Black & White (No Blue Tints)
+ */
+
+/* Pure Colors */
+@define-color base_black  #000000;
+@define-color pure_white  #ffffff;
+
+/* Obsidian Logic (RGB: 24, 28, 31 stripped to 24, 24, 24 for neutral dark) */
+@define-color bg_obsidian  #181818; 
+@define-color fg_main      #ffffff;
+
+/* Adwaita / GTK Overrides */
+@define-color accent_bg_color @pure_white;
+@define-color accent_fg_color @base_black;
+@define-color accent_color    @pure_white;
+
+/* Window Backgrounds with Liquid Alpha */
+@define-color window_bg_color rgba(0, 0, 0, 0.75);
+@define-color window_fg_color @fg_main;
+
+@define-color view_bg_color    rgba(0, 0, 0, 0.6);
+@define-color sidebar_bg_color rgba(10, 10, 10, 0.8);
+
+/* UI Elements */
+@define-color headerbar_bg_color rgba(15, 15, 15, 0.95);
+@define-color headerbar_fg_color @fg_main;
+@define-color card_bg_color      rgba(255, 255, 255, 0.05);
+
+/* Borders & Dividers (The "Glass" Highlight) */
+@define-color borders rgba(255, 255, 255, 0.12);
+
+/* Legacy Selection */
+@define-color theme_selected_bg_color rgba(255, 255, 255, 0.15);
+@define-color theme_selected_fg_color @pure_white;
+
+/* --- UI Styling --- */
+
+/* Rounded Liquid Profile */
+window, .main-window {
+    border-radius: 16px;
+    /* This adds the sharp "glass" rim */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Floating Pill Buttons */
+button {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid @borders;
+    color: @fg_main;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Headerbar logic */
+headerbar {
+    background-color: @headerbar_bg_color;
+    border-bottom: 1px solid @borders;
+    padding: 8px;
+}
+
+/* Selection / Active items */
+selection, .selection, row:selected, entry:selected {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: @pure_white;
+}
+
+/* Scrollbars - Stealth Mode */
+scrollbar trough {
+    background-color: transparent;
+}
+scrollbar slider {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
