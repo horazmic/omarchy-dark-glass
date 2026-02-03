@@ -28,4 +28,4 @@ Ready to clear the fog? Use the Omarchy installation command to deploy the theme
 omarchy-theme-install https://github.com//dark-glass.git
 
 ```
-Would you like me to draft a matching **`hyprland.conf`** snippet for the blur and transparency settings to complete the glass effect?
+based of https://github.com/hembramnishant50-glitch/omarchy-midnight-ronin
