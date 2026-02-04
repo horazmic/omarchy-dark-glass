@@ -37,9 +37,9 @@ window#waybar {
     padding: 1px 15px;
     margin: 4px 2px 2px 2px;
     /* border: 1px solid rgba(255, 255, 255, 0.1); */
-    border: 1px #525252;
-    
-    /* The "Liquid" transition: snappy start, smooth finish */
+    /*border-radius: 1px #525252;*/
+      
+    /* The "Liquid" list-style-type:ansition: snappy start, smooth finish */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     
     /* Frosty text/icon glow instead of a dark shadow */
