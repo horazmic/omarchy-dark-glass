@@ -7,7 +7,7 @@
   "margin-right": 10,
   "spacing": 4,
 
-  "modules-left": ["hyprland/workspaces", "cpu", "memory", "mpris", "pulseaudio"],
+  "modules-left": ["hyprland/workspaces", "cpu", "memory", "pulseaudio", "mpris"],
 
   "modules-center": ["clock"],
 
@@ -115,7 +115,7 @@
 
   "hyprland/workspaces": {
     "format": "{name}",
-    "persistent-workspaces": { "1": [], "2": [], "3": [], "4": [] },
+   // "persistent-workspaces": { "1": [], "2": [], "3": [], "4": [] },
   },
 
   "clock": {
