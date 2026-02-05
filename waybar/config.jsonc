@@ -7,11 +7,11 @@
   "margin-right": 10,
   "spacing": 4,
 
-  "modules-left": ["hyprland/workspaces", "cpu", "memory", "pulseaudio", "mpris"],
+  "modules-left": ["hyprland/workspaces", "cpu", "memory"],//, "pulseaudio", "mpris"],
 
   "modules-center": ["clock"],
 
-  "modules-right": ["network", "power-profiles-daemon", "battery"],
+  "modules-right": ["mpris", "network", "power-profiles-daemon", "battery"],
   
   "pulseaudio": {
     "format": "{icon} {volume}%",
