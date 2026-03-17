@@ -1,160 +1,173 @@
 {
+  "reload_style_on_change": true,
   "layer": "top",
   "position": "top",
-  "height": 32,
-  "margin-top": 5,
-  "margin-left": 10,
-  "margin-right": 10,
-  "spacing": 4,
-
-  "modules-left": ["hyprland/workspaces", "cpu", "memory"],//, "pulseaudio", "mpris"],
-
-  "modules-center": ["clock"],
-
-  "modules-right": ["mpris", "network", "power-profiles-daemon", "battery"],
-  
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "{icon}  {volume}%",
-    "format-muted": "  Muted",
-    // This is the magic part: it looks for specific port names
-    "format-icons": {
-        "headphone": "",
-        "hands-free": "󰋎",
-        "headset": "󰋎",
-        "phone": "",
-        "portable": "",
-        "car": "",
-        "default": [" ", " ", " "]
-    },
-    "on-click": "omarchy-launch-audio",
-    "scroll-step": 5
-  },
-  
-  "power-profiles-daemon": {
+  "spacing": 0,
+  "height": 26,
+  "modules-left": ["custom/omarchy", "hyprland/workspaces"],
+  "modules-center": ["clock", "custom/update", "custom/voxtype", "custom/screenrecording-indicator", "custom/idle-indicator", "custom/notification-silencing-indicator"],
+  "modules-right": [
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "cpu",
+    "battery"
+  ],
+  "hyprland/workspaces": {
+    "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-        "performance": " 󱐋 ",
-        "balanced": " 󰎎 ",
-        "power-saver": " 󰌪 "
+      "default": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "0",
+      "active": "󱓻"
     },
-    "tooltip-format": "Power profile: {profile}"
-  },
-
-  "mpris": {
-    "player": "spotify",                    // locks to Spotify only (case-sensitive; check with playerctl --list-all)
-    "format": "{status_icon} {title}",
-    "format-paused": "{status_icon} {title}",
-    "format-stopped": "",                   // hide when Spotify not playing
-    "max-length": 50,
-    "interval": 1,
-    "on-click": "playerctl --player=spotify play-pause",
-    // "on-click-right": "playerctl --player=spotify next",
-    // "on-click-middle": "playerctl --player=spotify previous",
-    "player-icons": {
-        "spotify": ""
-    },
-    "status-icons": {
-        "playing": "",
-        "paused": "",
-        "stopped": ""
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
     }
+  },
+  "custom/omarchy": {
+    "format": "<span>󰣇</span>",
+    "on-click": "omarchy-menu",
+    "on-click-right": "xdg-terminal-exec",
+    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
+  },
+  "custom/update": {
+    "format": "",
+    "exec": "omarchy-update-available",
+    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+    "tooltip-format": "Omarchy update available",
+    "signal": 7,
+    "interval": 21600
   },
 
   "cpu": {
-    "format": " {usage}%",
-    "states": {
-      "good": 0,
-      "warning": 60,
-      "critical": 80,
-    },
-    "on-click": "omarchy-launch-tui btop"
+    "interval": 5,
+    "format": "󰍛",
+    "on-click": "omarchy-launch-or-focus-tui btop",
+    "on-click-right": "alacritty"
   },
-
-  "memory": {
-    "format": " {used}G",
-    "states": {
-      "good": 0,
-      "warning": 65,
-      "critical": 80,
-    },
-    "on-click": "omarchy-launch-tui btop"
-  },
-
-  "disk": {
-    "format": "󰋊 {free}",
-    "states": {
-      "good": 0,
-      "warning": 80,
-      "critical": 90,
-    },
-    "on-click": "omarchy-launch-tui btop"
-  },
-
-  "battery": {
-    "interval": "5",
-    "format": "{icon} {capacity}% 󰥔 {time}",
-    "format-time": "{H}:{m}",
-    "format-charging": "{icon} {capacity}% 󰥔 {time}",
-    "format-full": "{icon} {capacity}%",
-    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰂄"],
-    "states": {
-      "good": 100,
-      "normal": 90,
-      "warning": 30,
-      "critical": 15,
-    },
-    "on-click": ""
-  },
-
-  "custom/omarchy": {
-    "format": " <span color='#7aa2f7'>󰣇</span> ",
-    "on-click": "omarchy-menu",
-    "tooltip": false,
-  },
-
-  "hyprland/workspaces": {
-    "format": "{name}",
-   // "persistent-workspaces": { "1": [], "2": [], "3": [], "4": [] },
-  },
-
   "clock": {
-    "interval": 60,
-    "format": "{:%H:%M}",
-    "format-alt": "<span color='#e0af68'></span>{:%d %b, %Y}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:L%A %H:%M}",
+    "format-alt": "{:L%d %B W%V %Y}",
+    "tooltip": false,
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
   },
-
   "network": {
-    // "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-wifi": "  {signalStrength}%",
-    "format-ethernet": " 󰈀 ",
-    "format-disconnected": " No network",
-    "on-click": "omarchy-launch-wifi",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1,
+    "on-click": "omarchy-launch-wifi"
   },
-
-  // "custom/weather": {
-  //   "exec": "python ~/.config/waybar/scripts/weather.py",
-  //   "return-type": "json",
-  //   "interval": 1800,
-  //   "tooltip": true,
-  // },
-
-  // "pulseaudio": {
-  //   "format": "<span color='#9ece6a'>{icon}</span> {volume}%",
-  //   "format-icons": { "default": ["", "", ""] },
-  // },
-
-  // "battery": {
-  //     "format": "<span color='#e0af68'>{icon}</span> {capacity}%",
-  //     "format-charging": "<span color='#9ece6a'>󱐋</span> {capacity}%",
-  //     "format-icons": ["", "", "", "", ""]
-  // },
-
-  // "custom/power": {
-  //   "format": " <span color='#f7768e'>⏻ </span>",
-  //   "on-click": "omarchy-menu system",
-  // },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-discharging": "{icon}",
+    "format-charging": "{icon}",
+    "format-plugged": "",
+    "format-icons": {
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "format-full": "󰂅",
+    "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+    "interval": 5,
+    "on-click": "omarchy-menu power",
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  },
+  "bluetooth": {
+    "format": "",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "format-no-controller": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "omarchy-launch-bluetooth"
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "on-click": "omarchy-launch-audio",
+    "on-click-right": "pamixer -t",
+    "tooltip-format": "Playing at {volume}%",
+    "scroll-step": 5,
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "headset": "",
+      "default": ["", " ", " "]
+    }
+  },
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item"
+    },
+    "modules": ["custom/expand-icon", "tray"]
+  },
+  "custom/expand-icon": {
+    "format": "",
+    "tooltip": false,
+    "on-scroll-up": "",
+    "on-scroll-down": "",
+    "on-scroll-left": "",
+    "on-scroll-right": ""
+  },
+  "custom/screenrecording-indicator": {
+    "on-click": "omarchy-cmd-screenrecord",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
+    "signal": 8,
+    "return-type": "json"
+  },
+  "custom/idle-indicator": {
+    "on-click": "omarchy-toggle-idle",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/idle.sh",
+    "signal": 9,
+    "return-type": "json"
+  },
+  "custom/notification-silencing-indicator": {
+    "on-click": "omarchy-toggle-notification-silencing",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/notification-silencing.sh",
+    "signal": 10,
+    "return-type": "json"
+  },
+  "custom/voxtype": {
+    "exec": "omarchy-voxtype-status",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+      "idle": "",
+      "recording": "󰍬",
+      "transcribing": "󰔟"
+    },
+    "tooltip": true,
+    "on-click-right": "omarchy-voxtype-config",
+    "on-click": "omarchy-voxtype-model"
+  },
+  "tray": {
+    "icon-size": 12,
+    "spacing": 17
+  }
 }
-
-
