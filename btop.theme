@@ -16,10 +16,10 @@ theme[hi_fg]="#7dcfff"
 
 # Selected row
 theme[selected_bg]="#364a82"
-theme[selected_fg]="#c0caf5"
+theme[selected_fg]="#ffffff"
 
-# Inactive/dim text
-theme[inactive_fg]="#565f89"
+# Inactive/dim text — bright enough to actually read
+theme[inactive_fg]="#a9b1d6"
 
 # Box borders
 theme[cpu_box]="#3d59a1"
