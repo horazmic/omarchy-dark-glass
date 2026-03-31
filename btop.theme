@@ -29,9 +29,9 @@ theme[proc_box]="#3d59a1"
 theme[div_line]="#3b4261"
 
 # CPU graph — starts visible, ends bright blue
-theme[cpu_start]="#34629e"
+theme[cpu_start]="#4078c0"
 theme[cpu_mid]="#4fc3f7"
-theme[cpu_end]="#7aa2f7"
+theme[cpu_end]="#bbd1ff"
 
 # Free memory graph
 theme[free_start]="#1e3a5f"
