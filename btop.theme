@@ -1,62 +1,63 @@
 # ────────────────────────────────────────────────────────────
-# BTOP THEME — Tokyo Night Glassy Edition
+# BTOP THEME — Tokyo Night (fixed contrast)
 # ────────────────────────────────────────────────────────────
 
-# Main background 
-# Empty allows your Terminal (Ghostty/Kitty/Alacritty) blur to show through
+# Empty = use terminal background (for blur/transparency)
 theme[main_bg]=""
 
-# Main text - Tokyo Night Foreground #c0caf5
+# Main text
 theme[main_fg]="#c0caf5"
 
-# Titles - Tokyo Blue #7aa2f7
+# Titles
 theme[title]="#7aa2f7"
 
-# Highlight text - Tokyo Cyan #7dcfff
-theme[hi_fg]="#7dcfff" 
+# Highlight text
+theme[hi_fg]="#7dcfff"
 
-# Selected row background - Deep Navy #292e42
-theme[selected_bg]="#292e42" 
+# Selected row
+theme[selected_bg]="#364a82"
+theme[selected_fg]="#c0caf5"
 
-# Selected row text - Tokyo Purple #bb9af7
-theme[selected_fg]="#bb9af7"
-
-# Inactive/dim text - Darker Gray #565f89
+# Inactive/dim text
 theme[inactive_fg]="#565f89"
 
-# Box outlines - Tokyo Blue
-theme[cpu_box]="#7aa2f7"
-theme[mem_box]="#7aa2f7"
-theme[net_box]="#7aa2f7"
-theme[proc_box]="#7aa2f7"
-theme[div_line]="#292e42"
+# Box borders
+theme[cpu_box]="#3d59a1"
+theme[mem_box]="#9d7cd8"
+theme[net_box]="#41a6b5"
+theme[proc_box]="#3d59a1"
+theme[div_line]="#3b4261"
 
-# Graph gradients - Deep Navy to Tokyo Blue
-theme[cpu_start]="#24283b"
-theme[cpu_mid]="#7dcfff"
+# CPU graph — starts visible, ends bright blue
+theme[cpu_start]="#1e3a5f"
+theme[cpu_mid]="#4fc3f7"
 theme[cpu_end]="#7aa2f7"
 
-theme[free_start]="#24283b"
-theme[free_mid]="#7dcfff"
+# Free memory graph
+theme[free_start]="#1e3a5f"
+theme[free_mid]="#4fc3f7"
 theme[free_end]="#7aa2f7"
 
-# Memory - Deep Navy to Tokyo Purple
-theme[mem_start]="#24283b"
+# Used memory graph — purple range
+theme[mem_start]="#2d1b69"
 theme[mem_mid]="#9d7cd8"
 theme[mem_end]="#bb9af7"
 
-theme[net_start]="#24283b"
-theme[net_mid]="#7dcfff"
-theme[net_end]="#7aa2f7"
+# Network graph
+theme[net_start]="#1e3a5f"
+theme[net_mid]="#41a6b5"
+theme[net_end]="#7dcfff"
 
-# Temperature - Blue to Purple Gradient
+# Temperature — blue to red
 theme[temp_start]="#7aa2f7"
-theme[temp_mid]="#9d7cd8"
-theme[temp_end]="#bb9af7"
+theme[temp_mid]="#e0af68"
+theme[temp_end]="#f7768e"
 
-# Process bars
+# Process CPU bars
 theme[proc_misc]="#bb9af7"
-theme[upload_start]="#24283b"
+
+# Upload/download graphs
+theme[upload_start]="#1e3a5f"
 theme[upload_end]="#7aa2f7"
-theme[download_start]="#24283b"
+theme[download_start]="#2d1b69"
 theme[download_end]="#bb9af7"
