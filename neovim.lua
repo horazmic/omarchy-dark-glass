@@ -6,31 +6,31 @@ return {
         opts = {
             disable_italics = false,
             colors = {
-                -- Monotone shades (Tokyo Night Storm/Night mix)
-                base00 = "#1a1b26", -- Default background
-                base01 = "#16161e", -- Lighter background (status bars)
-                base02 = "#2f334d", -- Selection background
-                base03 = "#444b6a", -- Comments, invisibles
-                base04 = "#565f89", -- Dark foreground
-                base05 = "#c0caf5", -- Default foreground
-                base06 = "#b4f9f8", -- Light foreground
-                base07 = "#a9b1d6", -- Light background
+                -- Obsidian glass neutrals
+                base00 = "#0d0d0d",
+                base01 = "#151515",
+                base02 = "#2a2a2a",
+                base03 = "#4a4a4a",
+                base04 = "#7d7d7d",
+                base05 = "#f2f2f2",
+                base06 = "#ffffff",
+                base07 = "#d0d0d0",
 
-                -- Accent colors (Tokyo Night Palette)
-                base08 = "#f7768e", -- Variables, errors, red
-                base09 = "#ff9e64", -- Integers, constants, orange
-                base0A = "#e0af68", -- Classes, types, yellow
-                base0B = "#9ece6a", -- Strings, green
-                base0C = "#7dcfff", -- Support, regex, cyan
-                base0D = "#7aa2f7", -- Functions, keywords, blue
-                base0E = "#bb9af7", -- Keywords, storage, magenta
-                base0F = "#c0caf5", -- Special, blue/white
+                -- Muted syntax accents
+                base08 = "#b88a8a",
+                base09 = "#b89778",
+                base0A = "#b8a27f",
+                base0B = "#93a389",
+                base0C = "#89a3a0",
+                base0D = "#8c99a6",
+                base0E = "#a18ea6",
+                base0F = "#9f9f9f",
             },
         },
         config = function(_, opts)
             require("aether").setup(opts)
-            
-            -- THE GLASSY FIX: Force transparency so you see Hyprland blur
+
+            -- Keep editing surfaces transparent so Hyprland blur remains visible.
             vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
             vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
             vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })

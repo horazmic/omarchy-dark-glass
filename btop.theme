@@ -1,63 +1,63 @@
 # ────────────────────────────────────────────────────────────
-# BTOP THEME — Tokyo Night (fixed contrast)
+# BTOP THEME — Obsidian Glass
 # ────────────────────────────────────────────────────────────
 
 # Empty = use terminal background (for blur/transparency)
 theme[main_bg]=""
 
 # Main text
-theme[main_fg]="#c0caf5"
+theme[main_fg]="#f2f2f2"
 
 # Titles
-theme[title]="#7aa2f7"
+theme[title]="#d8d8d8"
 
 # Highlight text
-theme[hi_fg]="#7dcfff"
+theme[hi_fg]="#ffffff"
 
 # Selected row
-theme[selected_bg]="#364a82"
+theme[selected_bg]="#2a2a2a"
 theme[selected_fg]="#ffffff"
 
-# Inactive/dim text — bright enough to actually read
-theme[inactive_fg]="#a9b1d6"
+# Inactive/dim text
+theme[inactive_fg]="#9f9f9f"
 
 # Box borders
-theme[cpu_box]="#3d59a1"
-theme[mem_box]="#9d7cd8"
-theme[net_box]="#41a6b5"
-theme[proc_box]="#3d59a1"
-theme[div_line]="#3b4261"
+theme[cpu_box]="#666666"
+theme[mem_box]="#7a7a7a"
+theme[net_box]="#8a8a8a"
+theme[proc_box]="#666666"
+theme[div_line]="#333333"
 
-# CPU graph — starts visible, ends bright blue
-theme[cpu_start]="#4078c0"
-theme[cpu_mid]="#4fc3f7"
-theme[cpu_end]="#bbd1ff"
+# CPU graph
+theme[cpu_start]="#4f4f4f"
+theme[cpu_mid]="#787878"
+theme[cpu_end]="#b0b0b0"
 
 # Free memory graph
-theme[free_start]="#1e3a5f"
-theme[free_mid]="#4fc3f7"
-theme[free_end]="#7aa2f7"
+theme[free_start]="#353535"
+theme[free_mid]="#666666"
+theme[free_end]="#9d9d9d"
 
-# Used memory graph — purple range
-theme[mem_start]="#2d1b69"
-theme[mem_mid]="#9d7cd8"
-theme[mem_end]="#bb9af7"
+# Used memory graph
+theme[mem_start]="#404040"
+theme[mem_mid]="#727272"
+theme[mem_end]="#b2b2b2"
 
 # Network graph
-theme[net_start]="#1e3a5f"
-theme[net_mid]="#41a6b5"
-theme[net_end]="#7dcfff"
+theme[net_start]="#3b3b3b"
+theme[net_mid]="#6f6f6f"
+theme[net_end]="#a6a6a6"
 
-# Temperature — blue to red
-theme[temp_start]="#7aa2f7"
-theme[temp_mid]="#e0af68"
-theme[temp_end]="#f7768e"
+# Temperature: neutral to warm
+theme[temp_start]="#7a7a7a"
+theme[temp_mid]="#b08f66"
+theme[temp_end]="#b67575"
 
 # Process CPU bars
-theme[proc_misc]="#bb9af7"
+theme[proc_misc]="#8a8a8a"
 
 # Upload/download graphs
-theme[upload_start]="#1e3a5f"
-theme[upload_end]="#7aa2f7"
-theme[download_start]="#2d1b69"
-theme[download_end]="#bb9af7"
+theme[upload_start]="#454545"
+theme[upload_end]="#9b9b9b"
+theme[download_start]="#3d3d3d"
+theme[download_end]="#8a8a8a"

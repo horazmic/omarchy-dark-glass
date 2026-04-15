@@ -1,31 +1,29 @@
-# 🧊 Dark-Glass
+# Dark Glass
 
-> **Translucency defined. A minimalist, frosted-glass aesthetic for the modern desktop.**
+Dark Glass is an Omarchy theme built around one idea: neutral obsidian surfaces with blur, thin borders, and just enough contrast to keep the desktop readable.
 
-## 🌫️ About the Theme
+## Design Rules
 
-**Dark-Glass** moves away from solid colors in favor of depth and transparency. Built for **Hyprland**, it leverages Gaussian blur and subtle borders to create a "floating" UI experience. It’s clean, immersive, and designed to make your wallpaper the star of the show while maintaining high readability.
+- Wallpaper-led glass surfaces instead of flat panels
+- Neutral monochrome UI with muted terminal syntax colors
+- Thin white borders and restrained hover or selection states
+- Warm color reserved for alerts, checks, and thermal states
 
-### ✨ Key Features
+## Included Components
 
-* **Frosted Glass:** Deep blur effects across all windows and panels.
-* **Minimalist Borders:** Thin, neutral accents to define workspace boundaries.
-* **Unified Aesthetics:** Seamless integration between Waybar, Rofi, and the terminal.
+- Hyprland window decoration and blur rules
+- Hyprlock palette
+- GTK, Walker, Wofi, notifications, and OSD styling
+- Kitty, Ghostty, Alacritty, Warp, `btop`, and Neovim theme files
+- Waybar theme assets
 
-### 💎 Modular Components
-
-If you only want specific parts of the look:
-
-* **Waybar Only:** Copy the `waybar` folder to your `~/.config/waybar` directory.
-
----
-
-## 🚀 Installation
-
-Ready to clear the fog? Use the Omarchy installation command to deploy the theme instantly:
+## Installation
 
 ```bash
-omarchy-theme-install https://github.com//dark-glass.git
-
+omarchy-theme-install https://github.com/horazmic/omarchy-dark-glass.git
 ```
-based of https://github.com/hembramnishant50-glitch/omarchy-midnight-ronin
+
+## Notes
+
+- If you only want one surface, copy just that file or folder into the matching app config.
+- The theme is based on ideas from `omarchy-midnight-ronin`, then rebuilt around a lower-chroma glass system.
