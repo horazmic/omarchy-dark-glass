@@ -1,3 +1,5 @@
+mode = "dark"
+
 # Accent and UI colors
 accent = "#8c8c8c"
 active_border_color = "#8c8c8c"
