@@ -29,32 +29,40 @@ Built for **Omarchy v4 (Quattro)**.
 - Ten bundled high-resolution wallpapers in `backgrounds/`, plus preview
   assets for theme browsers and the lock screen
 
-## Runtime Extensions
+## Bundled Plugins
 
-Two optional user-owned plugin overrides complement this theme and survive
-Omarchy updates:
+The theme includes two Omarchy plugin overrides in `plugins/`:
 
-- `~/.config/omarchy/plugins/horazmic.lock` — lock-screen wallpaper blur
-- `~/.config/omarchy/plugins/horazmic.osd` — frosted volume and brightness OSD
+- `dark-glass.lock` — lock-screen wallpaper blur tuned for Dark Glass
+- `dark-glass.osd` — frosted volume and brightness OSD
 
-They are local configuration, not files in this theme repository. The theme
-remains fully usable without them; Omarchy's built-in lock screen and OSD are
-used instead.
+They extend Omarchy's built-in lock screen and OSD without modifying Omarchy
+itself. Install them once after activating the theme:
+
+```bash
+mkdir -p ~/.config/omarchy/plugins
+cp -a /path/to/this/repo/plugins/dark-glass.lock ~/.config/omarchy/plugins/
+cp -a /path/to/this/repo/plugins/dark-glass.osd ~/.config/omarchy/plugins/
+omarchy restart shell
+```
+
+Only install one plugin override for each built-in component; remove or rename
+an older lock-screen or OSD override first if you have one.
 
 ## Installation
 
-This theme is not yet published to a remote repository. Symlink the local
-checkout into your user themes directory and activate it:
+Install from GitHub with:
+
+```bash
+omarchy theme install https://github.com/horazmic/omarchy-dark-glass.git
+```
+
+For a local checkout, symlink it into your user themes directory and activate
+it:
 
 ```bash
 ln -s /path/to/this/repo ~/.config/omarchy/themes/dark-glass
 omarchy theme set dark-glass
-```
-
-Once published to a git remote, it can instead be installed with:
-
-```bash
-omarchy theme install https://github.com/horazmic/omarchy-dark-glass.git
 ```
 
 ## Notes

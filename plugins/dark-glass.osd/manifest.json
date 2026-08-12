@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "dark-glass.osd",
+  "name": "Dark Glass On-screen Display",
+  "version": "1.0.0",
+  "description": "Quickshell volume, brightness, and status overlays.",
+  "kinds": [
+    "panel"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "panel": "Osd.qml"
+  },
+  "omarchy": {
+    "clonedFrom": "omarchy.osd"
+  }
+}
