@@ -1,0 +1,20 @@
+# Shared interactive states: restrained at rest, unmistakable on focus.
+normal-fill-alpha   = 0.03
+normal-border       = "rgba(255,255,255,0.18)"
+normal-border-alpha = 0.18
+
+hover-cursor-fill-alpha   = 0.10
+hover-cursor-border       = "rgba(255,255,255,0.18)"
+hover-cursor-border-alpha = 0.26
+
+focus-fill-alpha   = 0.14
+focus-border       = "rgba(255,255,255,0.18)"
+focus-border-alpha = 0.30
+
+selected-fill-alpha   = 0.16
+selected-border       = "rgba(255,255,255,0.18)"
+selected-border-width = 1
+selected-border-alpha = 0.28
+
+pressed-fill-alpha   = 0.20
+selection-fill-alpha = 0.32

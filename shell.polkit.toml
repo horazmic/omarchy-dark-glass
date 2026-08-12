@@ -1,0 +1,10 @@
+background       = "#0d0d0d"
+background-alpha = 0.78
+text             = "#f2f2f2"
+text-error       = "#a67a7a"
+border           = "rgba(255,255,255,0.18)"
+border-error     = "#a67a7a"
+border-alpha     = 0.32
+scrim            = "#0d0d0d"
+scrim-alpha      = 0.14
+accent           = "#f2f2f2"

@@ -63,11 +63,42 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "default
 -- Blur the app launcher / menu card so it reads as glass, not a flat panel.
 -- Layer-shell surfaces aren't blurred by decoration.blur alone; they need
 -- an explicit layer rule naming their namespace.
--- The rest of the menu layer (scrim disabled, shell.menu.toml scrim-alpha=0)
--- is fully transparent, so any ignore_alpha threshold above 0 already
--- excludes it from blur; keep this low so the card (background-alpha in
+-- The rest of the menu layer uses a minimal 0.06 scrim, which remains below
+-- the threshold. Keep it low so the card (background-alpha in
 -- shell.menu.toml) always clears it even as that opacity gets tuned down.
 hl.layer_rule({ match = { namespace = "omarchy-menu" }, blur = true, ignore_alpha = 0.1 })
+
+-- Bar widgets open as child popup surfaces rather than independent named
+-- layers. Blur them through their owning bar layer; the alpha threshold keeps
+-- the transparent bar itself out of the blur pass while its glass popouts
+-- receive the same treatment as the launcher.
+hl.layer_rule({ match = { namespace = "omarchy-bar" }, blur = true, blur_popups = true, ignore_alpha = 0.1 })
+
+-- The interactive status panels (audio, network, Bluetooth, power, etc.)
+-- share a full-screen layer-shell container. Its card is the only opaque
+-- region; ignore the transparent dismiss area and blur the card itself.
+hl.layer_rule({ match = { namespace = "omarchy-keyboard-panel" }, blur = true, ignore_alpha = 0.1 })
+
+-- Polkit uses a 0.14 full-screen scrim behind a 0.78 dialog card. Ignore the
+-- scrim so blur is confined to the authentication popup itself.
+hl.layer_rule({ match = { namespace = "omarchy-polkit" }, blur = true, ignore_alpha = 0.5 })
+
+-- Remaining Omarchy overlay surfaces share the same frosted treatment. These
+-- are explicit layer-shell namespaces, so application windows stay untouched.
+for _, namespace in ipairs({
+  "omarchy-notifications",
+  "omarchy-osd",
+  "omarchy-clipboard",
+  "omarchy-emojis",
+  "omarchy-reminders",
+  "omarchy-network-qr",
+  "omarchy-speed-test",
+  "omarchy-network-speedtest",
+  "omarchy-disk-speedtest",
+  "omarchy-lock-preview",
+}) do
+  hl.layer_rule({ match = { namespace = namespace }, blur = true, ignore_alpha = 0.1 })
+end
 
 -- Every regular window opts out of blur-behind entirely, even ones that
 -- render their own client-side transparency (Alacritty/Kitty/Ghostty window
