@@ -17,7 +17,7 @@ hl.config({
   },
 
   decoration = {
-    rounding = 10,
+    rounding = 20,
 
     -- Fully opaque windows: blur-behind only triggers on transparent
     -- surfaces, so this keeps the blur pass scoped to the omarchy-menu
